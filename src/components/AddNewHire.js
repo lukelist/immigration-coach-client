@@ -18,9 +18,9 @@ function AddNewHire(props) {
   const [anerkennung, setAnerkennung] = useState(false);
   const [vorabpruefung, setVorabpruefung] = useState(false);
   const [comments, setComments] = useState("");
-  const [company, setCompany] =useState("");
+  const [company, setCompany] = useState("");
 
-  const {companyId} = useParams()
+  const { companyId } = useParams();
 
   const getCompany = () => {
     axios
@@ -33,10 +33,8 @@ function AddNewHire(props) {
     getCompany();
   }, []);
 
-  console.log(companyId)
   const handleSubmit = (e) => {
     e.preventDefault();
-
 
     const requestBody = {
       firstName,
@@ -76,11 +74,10 @@ function AddNewHire(props) {
 
         // to refresh the company details
 
-        props.refreshCompany();
+        // props.refreshCompany();
       })
       .catch((error) => console.log(error));
   };
-console.log(spouse)
 
   return (
     <div className="addNewHire">
@@ -108,12 +105,12 @@ console.log(spouse)
         <label>Company:</label>
         <p>{company.companyName}</p>
 
-
         <label>Case-Owner:</label>
+        {console.log(caseOwner)}
         <select name="caseOwner" onChange={(e) => setCaseOwner(e.target.value)}>
-          <option value={caseOwner}>Ana</option>
-          <option value={caseOwner}>Dimi</option>
-          <option value={caseOwner}>Luke</option>
+          <option value="Ana">Ana</option>
+          <option value="Dimi">Dimi</option>
+          <option value="Luke">Luke</option>
         </select>
 
         <label>Nationality:</label>
@@ -121,16 +118,16 @@ console.log(spouse)
           name="nationality"
           onChange={(e) => setNationality(e.target.value)}
         >
-          <option value={nationality}>Argentina</option>
-          <option value={nationality}>Brazil</option>
-          <option value={nationality}>Egypt</option>
-          <option value={nationality}>India</option>
-          <option value={nationality}>Pakistan</option>
-          <option value={nationality}>Russia</option>
-          <option value={nationality}>Singapore</option>
-          <option value={nationality}>Turkey</option>
-          <option value={nationality}>UAE</option>
-          <option value={nationality}>USA</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Brazil">Brazil</option>
+          <option value="Egypt">Egypt</option>
+          <option value="India">India</option>
+          <option value="Pakistan">Pakistan</option>
+          <option value="Russia">Russia</option>
+          <option value="Singapore">Singapore</option>
+          <option value="Turkey">Turkey</option>
+          <option value="UAE">UAE</option>
+          <option value="USA">USA</option>
         </select>
 
         <label>Coming From:</label>
@@ -138,16 +135,16 @@ console.log(spouse)
           name="comingFrom"
           onChange={(e) => setComingFrom(e.target.value)}
         >
-          <option value={comingFrom}>Argentina</option>
-          <option value={comingFrom}>Brazil</option>
-          <option value={comingFrom}>Egypt</option>
-          <option value={comingFrom}>India</option>
-          <option value={comingFrom}>Pakistan</option>
-          <option value={comingFrom}>Russia</option>
-          <option value={comingFrom}>Singapore</option>
-          <option value={comingFrom}>Turkey</option>
-          <option value={comingFrom}>UAE</option>
-          <option value={comingFrom}>USA</option>
+          <option value="Argentina">Argentina</option>
+          <option value="Brazil">Brazil</option>
+          <option value="Egypt">Egypt</option>
+          <option value="India">India</option>
+          <option value="Pakistan">Pakistan</option>
+          <option value="Russia">Russia</option>
+          <option value="Singapore">Singapore</option>
+          <option value="Turkey">Turkey</option>
+          <option value="UAE">UAE</option>
+          <option value="USA">USA</option>
         </select>
 
         <label>Booked On:</label>
@@ -177,22 +174,22 @@ console.log(spouse)
             <input
               type="radio"
               name="spouse"
-              value={spouse}
-              onChange={(e) => setSpouse(e.target.value)}
+              value="true"
               checked
+              // onChange={(e) => setSpouse(e.target.value)}
             />
-            <label>true</label>
+            <label>yes</label>
           </div>
 
           <div>
             <input
               type="radio"
               name="spouse"
-              value={spouse}
-              onChange={(e) => setSpouse(e.target.value)}
+              value="false"
               checked
+              // onChange={(e) => setSpouse(e.target.value)}
             />
-            <label>false</label>
+            <label>no</label>
           </div>
         </fieldset>
 
@@ -200,13 +197,25 @@ console.log(spouse)
           <legend>Children:</legend>
 
           <div>
-            <input type="radio" name="children" value={children} checked />
-            <label>true</label>
+            <input
+              type="radio"
+              name="children"
+              value="true"
+              checked
+              // onChange={(e) => setChildren(e.target.value)}
+            />
+            <label>yes</label>
           </div>
 
           <div>
-            <input type="radio" name="children" value={children} checked />
-            <label>false</label>
+            <input
+              type="radio"
+              name="children"
+              value="false"
+              checked
+              // onChange={(e) => setChildren(e.target.value)}
+            />
+            <label>no</label>
           </div>
         </fieldset>
 
@@ -215,10 +224,10 @@ console.log(spouse)
           name="relocationPackage"
           onChange={(e) => setRelocationPackage(e.target.value)}
         >
-          <option value={relocationPackage}>0</option>
-          <option value={relocationPackage}>5</option>
-          <option value={relocationPackage}>12</option>
-          <option value={relocationPackage}>20</option>
+          <option value="0">0</option>
+          <option value="5">5</option>
+          <option value="12">12</option>
+          <option value="20">20</option>
         </select>
 
         <label>Immigration Package:</label>
@@ -226,16 +235,16 @@ console.log(spouse)
           name="immigrationPackage"
           onChange={(e) => setImmigrationPackage(e.target.value)}
         >
-          <option value={immigrationPackage}>Arbeitgeberwechsel</option>
-          <option value={immigrationPackage}>Family Visa</option>
-          <option value={immigrationPackage}>
+          <option value="Arbeitgeberwechsel">Arbeitgeberwechsel</option>
+          <option value="Family Visa">Family Visa</option>
+          <option value="Family Visa and Work Permit">
             Family Visa and Work Permit
           </option>
-          <option value={immigrationPackage}>Family Work Permit</option>
-          <option value={immigrationPackage}>Renewal</option>
-          <option value={immigrationPackage}>Visa Only</option>
-          <option value={immigrationPackage}>Visa and Work Permit</option>
-          <option value={immigrationPackage}>Work Permit Only</option>
+          <option value="Family Work Permit">Family Work Permit</option>
+          <option value="Renewal">Renewal</option>
+          <option value="Visa Only">Visa Only</option>
+          <option value="Visa and Work Permit">Visa and Work Permit</option>
+          <option value="Work Permit Only">Work Permit Only</option>
         </select>
 
         <fieldset>
@@ -245,20 +254,22 @@ console.log(spouse)
             <input
               type="radio"
               name="anerkennung"
-              value={anerkennung}
+              value="true"
               checked
+              // onChange={(e) => setAnerkennung(e.target.value)}
             />
-            <label>true</label>
+            <label>yes</label>
           </div>
 
           <div>
             <input
               type="radio"
               name="anerkennung"
-              value={anerkennung}
+              value="false"
               checked
+              // onChange={(e) => setAnerkennung(e.target.value)}
             />
-            <label>false</label>
+            <label>no</label>
           </div>
         </fieldset>
 
@@ -269,22 +280,30 @@ console.log(spouse)
             <input
               type="radio"
               name="vorabpruefung"
-              value={vorabpruefung}
+              value="true"
               checked
+              // onChange={(e) => setVorabpruefung(e.target.value)}
             />
-            <label>true</label>
+            <label>yes</label>
           </div>
 
           <div>
             <input
               type="radio"
               name="vorabpruefung"
-              value={vorabpruefung}
+              value="false"
               checked
+              // onChange={(e) => setVorabpruefung(e.target.value)}
             />
-            <label>false</label>
+            <label>no</label>
           </div>
         </fieldset>
+
+        <textarea
+          value={comments}
+          placeholder="Any additional information here..."
+          onChange={(e) => setComments(e.target.value)}
+        ></textarea>
 
         <button type="submit">Add New-Hire</button>
       </form>

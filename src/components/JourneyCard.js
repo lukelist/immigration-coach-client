@@ -1,6 +1,26 @@
-function JourneyCard({stages,_id}) {
+import axios from "axios";
+import { useEffect } from "react";
+// import { useParams } from "react-router-dom";
+// const [company, setCompany] =useState("");
 
-    
+const API_URL = "http://localhost:5005";
+
+
+
+
+function JourneyCard({stages,_id}) {
+  // const {} = useParams()
+  
+  const getJourney = () => {
+    axios
+    // .get(`${API_URL}/journey/${newHireId}/`)
+    // .then((response) => setCompany(response.data))
+    .catch((error) => console.log(error));
+  };
+  useEffect(() => {
+    getJourney();
+  }, []);
+  
   return (
     <div className="JourneyCard">
       <table className="tg">
