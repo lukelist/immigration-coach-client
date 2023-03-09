@@ -24,9 +24,9 @@ function NewHireCard({
   return (
     <div className="NewHireCard">
      
-        <h3 onClick={() => setShow(!show)}>
+        <button className="button2" onClick={() => setShow(!show)}>
           {firstName} {lastName}
-        </h3>
+        </button>
 
       {show && (
         <>
@@ -88,7 +88,7 @@ function NewHireCard({
               <td>{comments}</td>
             </tr>
           </table>
-          <Link to={`/journey/${_id}`} className="button2"><button>Journey</button></Link>
+          <Link to={`/journey/${_id}`}><button className="button3">Journey</button></Link>
         </>
       )}
     </div>

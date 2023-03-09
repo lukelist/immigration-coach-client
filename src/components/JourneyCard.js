@@ -2,21 +2,26 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
-const API_URL2 = process.env.REACT_APP_API_URL
+const API_URL2 = process.env.REACT_APP_API_URL;
 
 function JourneyCard() {
   const { newhireId } = useParams();
 
   const [journey, setJourney] = useState(undefined);
 
+  const [input, setInput] = useState("");
+
+  const handleSubmit = (e) => {
+    axios.put(`${API_URL2}/modify-date`, journey).then(() => {
+      getJourney();
+    });
+  };
+
   const getJourney = () => {
-    console.log("HERE");
     axios
       .get(`${API_URL2}/journey/${newhireId}/`)
       .then((response) => {
-        console.log("AXIOS");
         setJourney(response.data[0]);
-        console.log("JOURNEY DATA ISHERE!", response.data);
       })
       .catch((error) => console.log(error));
   };
@@ -25,12 +30,16 @@ function JourneyCard() {
     getJourney();
   }, []);
 
+  function changeDate(date) {
+    return new Date(date).toDateString();
+  }
+
   return (
     <>
       {journey == undefined ? (
         <p>loading</p>
       ) : (
-        <div className="JourneyCard">
+        <div className="journeyCard">
           <table className="tg">
             <thead>
               <tr>
@@ -83,70 +92,308 @@ function JourneyCard() {
                 <td className="tg-jevg">WP Issued</td>
               </tr>
               <tr>
-                <td className="tg-smii">{journey.stages.intro.kickOffCall}</td>
                 <td className="tg-smii">
-                  {journey.stages.intro.documentsReceived}
+                  {changeDate(journey.stages.intro.kickOffCall)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.intro.kickOffCall = e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
+                </td>
+                <td className="tg-smii" value={input}>
+                  {changeDate(journey.stages.intro.documentsReceived)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.intro.documentsReceived = e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-k12w">
-                  {journey.stages.anerkennung.introEmailSent}
+                  {changeDate(journey.stages.anerkennung.introEmailSent)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.anerkennung.introEmailSent =
+                        e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-k12w">
-                  {journey.stages.anerkennung.anerkennungResponseReceived}
+                  {changeDate(
+                    journey.stages.anerkennung.anerkennungResponseReceived
+                  )}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.anerkennung.anerkennungResponseReceived =
+                        e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-1zu3">
-                  {journey.stages.vorabpruefung.formsRequested}
+                  {changeDate(journey.stages.vorabpruefung.formsRequested)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.vorabpruefung.formsRequested =
+                        e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-1zu3">
-                  {journey.stages.vorabpruefung.docsReceived}
+                  {changeDate(journey.stages.vorabpruefung.docsReceived)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.vorabpruefung.docsReceived =
+                        e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-1zu3">
-                  {journey.stages.vorabpruefung.requestSubmitted}
+                  {changeDate(journey.stages.vorabpruefung.requestSubmitted)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.vorabpruefung.requestSubmitted =
+                        e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-1zu3">
-                  {journey.stages.vorabpruefung.responseScannedandSent}
+                  {changeDate(
+                    journey.stages.vorabpruefung.responseScannedandSent
+                  )}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.vorabpruefung.responseScannedandSent =
+                        e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-ft9w">
-                  {journey.stages.visa.visaApptBooked}
+                  {changeDate(journey.stages.visa.visaApptBooked)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.visa.visaApptBooked = e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-utzv">
-                  {journey.stages.visa.visaAppointmentDate}
+                  {changeDate(journey.stages.visa.visaAppointmentDate)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.visa.visaAppointmentDate = e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-ft9w">
-                  {journey.stages.visa.visaScanReceived}
+                  {changeDate(journey.stages.visa.visaScanReceived)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.visa.visaScanReceived = e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-utzv">
-                  {journey.stages.visa.visaValidUntil}
+                  {changeDate(journey.stages.visa.visaValidUntil)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.visa.visaValidUntil = e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-1ofu">
-                  {journey.stages.relocation.arrivalDate}
+                  {changeDate(journey.stages.relocation.arrivalDate)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.relocation.arrivalDate = e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-rq9j">
-                  {journey.stages.relocation.coachMatched}
+                  {changeDate(journey.stages.relocation.coachMatched)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.relocation.coachMatched = e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-1ofu">{journey.stages.relocation.coach}</td>
                 <td className="tg-1ofu">
-                  {journey.stages.relocation.beginsOn}
+                  {changeDate(journey.stages.relocation.beginsOn)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.relocation.beginsOn = e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-rq9j">
                   {journey.stages.relocation.numberOfWeeks}
                 </td>
-                <td className="tg-1ofu">{journey.stages.relocation.endDate}</td>
-                <td className="tg-jevg">
-                  {journey.stages.workPermit.formsRequested}
+                <td className="tg-1ofu">
+                  {changeDate(journey.stages.relocation.endDate)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.relocation.endDate = e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-jevg">
-                  {journey.stages.workPermit.formsRecieved}
+                  {changeDate(journey.stages.workPermit.formsRequested)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.workPermit.formsRequested =
+                        e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-jevg">
-                  {journey.stages.workPermit.submitted}
+                  {changeDate(journey.stages.workPermit.formsRecieved)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.workPermit.formsRecieved = e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-jevg">
-                  {journey.stages.workPermit.apptDateGiven}
+                  {changeDate(journey.stages.workPermit.submitted)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.workPermit.submitted = e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
+                </td>
+                <td className="tg-jevg">
+                  {changeDate(journey.stages.workPermit.apptDateGiven)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.workPermit.apptDateGiven = e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
                 <td className="tg-r8eb">
-                  {journey.stages.workPermit.appointmentDate}
+                  {changeDate(journey.stages.workPermit.appointmentDate)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.workPermit.appointmentDate =
+                        e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
                 </td>
-                <td className="tg-hqmf">{journey.stages.workPermit.issued}</td>
+                <td className="tg-hqmf">
+                  {changeDate(journey.stages.workPermit.issued)}
+                  <input
+                    type="date"
+                    name=""
+                    min="2023-01-01"
+                    max="2030-12-31"
+                    onChange={(e) =>
+                      (journey.stages.workPermit.issued = e.target.value)
+                    }
+                  />
+                  <button onClick={() => handleSubmit()}>submit</button>
+                </td>
               </tr>
             </tbody>
           </table>

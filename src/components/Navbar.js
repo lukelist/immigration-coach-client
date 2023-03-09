@@ -33,10 +33,10 @@ function Navbar() {
         <>
           <span className="sign-container">
             <NavLink to="/signup">
-              <button>SIGN UP</button>
+              <button className="button1">SIGN UP</button>
             </NavLink>
             <NavLink to="/login">
-              <button>LOG IN</button>
+              <button className="button2">LOG IN</button>
             </NavLink>
           </span>
         </>

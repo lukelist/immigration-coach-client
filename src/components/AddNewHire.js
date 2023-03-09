@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
-import { useParams } from "react-router-dom";
+import { useParams , useNavigate } from "react-router-dom";
 
 const API_URL2 = process.env.REACT_APP_API_URL
 
@@ -22,6 +22,8 @@ function AddNewHire(props) {
   const [company, setCompany] = useState("");
 
   const { companyId } = useParams();
+
+  const navigate = useNavigate();
 
   const getCompany = () => {
     axios
@@ -58,20 +60,7 @@ function AddNewHire(props) {
     axios
       .post(`${API_URL2}/newhires`, requestBody)
       .then((response) => {
-        setFirstName("");
-        setLastName("");
-        setCaseOwner("");
-        setNationality("");
-        setComingFrom("");
-        setBookedOn("");
-        setStartDate("");
-        setSpouse(false);
-        setChildren(false);
-        setRelocationPackage(0);
-        setImmigrationPackage("");
-        setAnerkennung(false);
-        setVorabpruefung(false);
-        setComments("");
+        navigate(`/companies/${companyId}`);
 
         // to refresh the company details
 

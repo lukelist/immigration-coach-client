@@ -90,9 +90,10 @@ function AddCompany(props) {
           onChange={(e) => setMainContactEmail(e.target.value)}
         />
 
-        <button type="submit">Submit</button>
+        <button className="button3" type="submit">Submit</button>
       </form>
     </div>
+    
   );
 }
 

@@ -25,7 +25,7 @@ function CompanyDetailsPage(props) {
   }, []);
 
   return (
-    <div className="CompanyDetails">
+    <div className="business-card">
       {company && (
         <>
           <h1>{company.companyName}</h1>
@@ -46,10 +46,10 @@ function CompanyDetailsPage(props) {
 
       
       <Link to={`/addNewHire/${companyId}`}>
-        <button>Add a New Hire</button>
+        <button className="button1">Add a New Hire</button>
       </Link>
       <Link to="/companies">
-        <button>Back to Companies</button>
+        <button className="button4">Back to Companies</button>
       </Link>
     </div>
   );
