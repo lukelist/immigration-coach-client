@@ -4,6 +4,7 @@ import axios from "axios";
 import CompanyCard from "./../components/CompanyCard";
 
 const API_URL = "http://localhost:5005";
+const API_URL2 = process.env.REACT_APP_API_URL
 
 function CompanyListPage() {
   const [companies, setCompanies] = useState([]);
@@ -11,7 +12,7 @@ function CompanyListPage() {
 
   const getAllCompanies = () => {
     axios
-      .get(`${API_URL}/companies`)
+      .get(`${API_URL2}/companies`)
       .then((response) => setCompanies(response.data))
       .catch((error) => console.log(error));
   };

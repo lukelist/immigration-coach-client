@@ -3,6 +3,7 @@ import axios from "axios";
 
 
 const API_URL = "http://localhost:5005";
+const API_URL2 = process.env.REACT_APP_API_URL
 
 function AddCompany(props) {
   const [companyName, setCompanyName] = useState("");
@@ -25,7 +26,7 @@ function AddCompany(props) {
     };
 
     axios
-      .post(`${API_URL}/company`, requestBody)
+      .post(`${API_URL2}/company`, requestBody)
       .then((response) => {
         setCompanyName("");
         setAddress("");

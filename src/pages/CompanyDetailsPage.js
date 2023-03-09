@@ -5,6 +5,7 @@ import AddNewHire from "../components/AddNewHire";
 import NewHireCard from "../components/NewHireCard";
 
 const API_URL = "http://localhost:5005";
+const API_URL2 = process.env.REACT_APP_API_URL
 
 function CompanyDetailsPage(props) {
   const [company, setCompany] = useState(null);
@@ -12,7 +13,7 @@ function CompanyDetailsPage(props) {
 
   const getCompany = () => {
     axios
-      .get(`${API_URL}/companies/${companyId}`)
+      .get(`${API_URL2}/companies/${companyId}`)
       .then((response) => {
         const oneCompany = response.data;
         setCompany(oneCompany);
@@ -34,13 +35,10 @@ function CompanyDetailsPage(props) {
           <p>{company.website}</p>
           <p>{company.mainContactName}</p>
           <p>{company.mainContactEmail}</p>
-          <ul>
-            <li>{company.newHires}</li>
-          </ul>
+
         </>
       )}
 
-      {/* <AddNewHire refreshCompany={getCompany} companyId={companyId} /> */}
 
       {company &&
         company.newHires.map((newHire) => {

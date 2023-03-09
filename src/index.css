@@ -1,13 +1,3 @@
-/* body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  
-} */
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
@@ -26,7 +16,7 @@ code {
 .companyCard {
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   transition: 0.3s;
-  width: 40%;
+  width: 20%;
   margin: 50px;
   padding: 10px;
   background-color:#e6fff2;
@@ -52,7 +42,7 @@ code {
 
 .NewHireCard table {
   border-collapse: collapse;
-  width: 100%;
+  width: 40%;
 }
 
 .NewHireCard td, th {
@@ -75,7 +65,7 @@ code {
 .tg .tg-6e0o{background-color:#f56b00;font-weight:bold;text-align:left;vertical-align:middle}
 .tg .tg-ft9w{background-color:#9aff99;text-align:left;vertical-align:middle}
 .tg .tg-8267{background-color:#6c38a1;font-weight:bold;text-align:left;vertical-align:middle}
-.tg .tg-hqmf{background-color:#c099e8;color:#000000;text-align:left;vertical-align:middle}
+.tg .tg-hqmf{background-color:#c099e8;color:#C61313;text-align:left;vertical-align:middle}
 .tg .tg-1ofu{background-color:#cbcefb;font-weight:bold;text-align:left;vertical-align:middle}
 .tg .tg-vs8g{background-color:#ffcb2f;font-weight:bold;text-align:left;vertical-align:middle}
 .tg .tg-qvz6{background-color:#009901;font-weight:bold;text-align:left;vertical-align:middle}
@@ -86,7 +76,6 @@ code {
 .tg .tg-rq9j{background-color:#cbcefb;text-align:left;vertical-align:middle}
 .tg .tg-utzv{background-color:#9aff99;font-weight:bold;text-align:left;vertical-align:middle}
 .tg .tg-r8eb{background-color:#c099e8;font-weight:bold;text-align:left;vertical-align:middle}
-
 /* Basic styles */
 
 body {
@@ -171,5 +160,6 @@ a {
 .button4:hover, .button4:focus {
   background-color: #1C2B3D;
 }
+
 
 

@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
 const API_URL = "http://localhost:5005";
+const API_URL2 = process.env.REACT_APP_API_URL
 
 function AddNewHire(props) {
   const [firstName, setFirstName] = useState("");
@@ -24,7 +25,7 @@ function AddNewHire(props) {
 
   const getCompany = () => {
     axios
-      .get(`${API_URL}/companies/${companyId}`)
+      .get(`${API_URL2}/companies/${companyId}`)
       .then((response) => setCompany(response.data))
       .catch((error) => console.log(error));
   };
@@ -55,7 +56,7 @@ function AddNewHire(props) {
     };
 
     axios
-      .post(`${API_URL}/newhires`, requestBody)
+      .post(`${API_URL2}/newhires`, requestBody)
       .then((response) => {
         setFirstName("");
         setLastName("");
@@ -100,13 +101,10 @@ function AddNewHire(props) {
           onChange={(e) => setLastName(e.target.value)}
         />
 
-        {/* journey here ?? */}
-
         <label>Company:</label>
         <p>{company.companyName}</p>
 
         <label>Case-Owner:</label>
-        {console.log(caseOwner)}
         <select name="caseOwner" onChange={(e) => setCaseOwner(e.target.value)}>
           <option value="Ana">Ana</option>
           <option value="Dimi">Dimi</option>
@@ -167,57 +165,17 @@ function AddNewHire(props) {
           onChange={(e) => setStartDate(e.target.value)}
         />
 
-        <fieldset>
-          <legend>Spouse:</legend>
+          <label>Spouse:</label>
+          <select name="spouse" onChange={(e) => setSpouse(e.target.value)}>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          </select>
 
-          <div>
-            <input
-              type="radio"
-              name="spouse"
-              value="true"
-              checked
-              // onChange={(e) => setSpouse(e.target.value)}
-            />
-            <label>yes</label>
-          </div>
-
-          <div>
-            <input
-              type="radio"
-              name="spouse"
-              value="false"
-              checked
-              // onChange={(e) => setSpouse(e.target.value)}
-            />
-            <label>no</label>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Children:</legend>
-
-          <div>
-            <input
-              type="radio"
-              name="children"
-              value="true"
-              checked
-              // onChange={(e) => setChildren(e.target.value)}
-            />
-            <label>yes</label>
-          </div>
-
-          <div>
-            <input
-              type="radio"
-              name="children"
-              value="false"
-              checked
-              // onChange={(e) => setChildren(e.target.value)}
-            />
-            <label>no</label>
-          </div>
-        </fieldset>
+          <label>Children:</label>
+          <select name="children" onChange={(e) => setChildren(e.target.value)}>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          </select>
 
         <label>Relocaton Package:</label>
         <select
@@ -247,57 +205,17 @@ function AddNewHire(props) {
           <option value="Work Permit Only">Work Permit Only</option>
         </select>
 
-        <fieldset>
-          <legend>Anerkennung:</legend>
+        <label>Anerkennung:</label>
+          <select name="anerkennung" onChange={(e) => setAnerkennung(e.target.value)}>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          </select>
 
-          <div>
-            <input
-              type="radio"
-              name="anerkennung"
-              value="true"
-              checked
-              // onChange={(e) => setAnerkennung(e.target.value)}
-            />
-            <label>yes</label>
-          </div>
-
-          <div>
-            <input
-              type="radio"
-              name="anerkennung"
-              value="false"
-              checked
-              // onChange={(e) => setAnerkennung(e.target.value)}
-            />
-            <label>no</label>
-          </div>
-        </fieldset>
-
-        <fieldset>
-          <legend>Vorabprüfung:</legend>
-
-          <div>
-            <input
-              type="radio"
-              name="vorabpruefung"
-              value="true"
-              checked
-              // onChange={(e) => setVorabpruefung(e.target.value)}
-            />
-            <label>yes</label>
-          </div>
-
-          <div>
-            <input
-              type="radio"
-              name="vorabpruefung"
-              value="false"
-              checked
-              // onChange={(e) => setVorabpruefung(e.target.value)}
-            />
-            <label>no</label>
-          </div>
-        </fieldset>
+          <label>Vorabprüfung:</label>
+          <select name="vorabpruefung" onChange={(e) => setVorabpruefung(e.target.value)}>
+          <option value="Yes">Yes</option>
+          <option value="No">No</option>
+          </select>
 
         <textarea
           value={comments}

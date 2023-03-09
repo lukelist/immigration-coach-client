@@ -5,7 +5,7 @@ import AddCompany from "./components/AddCompany";
 import CompanyListPage from "./pages/CompanyListPage";
 import AddNewHire from "./components/AddNewHire";
 import CompanyDetailsPage from "./pages/CompanyDetailsPage";
-/* import JourneyCard from "./components/JourneyCard"; */
+import JourneyCard from "./components/JourneyCard";
 import LoginPage from "./pages/LoginPage";
 import SignupPage from "./pages/SignupPage";
 
@@ -22,6 +22,7 @@ function App() {
         <Route path="/addNewHire/:companyId" element={<AddNewHire />} />
         <Route path="/signup" element={<SignupPage />} />
         <Route path="/login" element={<LoginPage />} />
+        <Route path="/journey/:newhireId" element={<JourneyCard/>}/>
       </Routes>
     </div>
   );

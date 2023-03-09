@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
  import { AuthContext } from "../context/auth.context";
 
 const API_URL = "http://localhost:5005";
+const API_URL2 = process.env.REACT_APP_API_URL
 
 function LoginPage(props) {
   const [email, setEmail] = useState("");
@@ -17,7 +18,7 @@ function LoginPage(props) {
     e.preventDefault();
     const requestBody = { email, password };
     axios
-      .post(`${API_URL}/auth/login`, requestBody)
+      .post(`${API_URL2}/auth/login`, requestBody)
       .then((response) => {
         console.log("JWT token", response.data.authToken);
          storeToken(response.data.authToken);
