@@ -3,7 +3,6 @@ import axios from "axios";
 
 import CompanyCard from "./../components/CompanyCard";
 
-const API_URL = "http://localhost:5005";
 const API_URL2 = process.env.REACT_APP_API_URL
 
 function CompanyListPage() {

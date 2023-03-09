@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 import { useParams } from "react-router-dom";
-const API_URL = "http://localhost:5005";
+
 const API_URL2 = process.env.REACT_APP_API_URL
 
 function AddNewHire(props) {
@@ -81,6 +81,7 @@ function AddNewHire(props) {
   };
 
   return (
+    
     <div className="addNewHire">
       <h3>Add a New-Hire</h3>
 

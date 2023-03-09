@@ -4,7 +4,6 @@ import axios from "axios";
 import AddNewHire from "../components/AddNewHire";
 import NewHireCard from "../components/NewHireCard";
 
-const API_URL = "http://localhost:5005";
 const API_URL2 = process.env.REACT_APP_API_URL
 
 function CompanyDetailsPage(props) {

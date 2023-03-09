@@ -87,11 +87,6 @@ function NewHireCard({
               <td>Comments:</td>
               <td>{comments}</td>
             </tr>
-            <tr>
-              <td>
-                {_id}
-              </td>
-            </tr>
           </table>
           <Link to={`/journey/${_id}`} className="button2"><button>Journey</button></Link>
         </>
