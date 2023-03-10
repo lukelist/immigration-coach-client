@@ -182,7 +182,6 @@ img.landingPage {
   padding: 8px;
   background-color: #ccc;
   font-size: 14px;
-  font-family: Arial, sans-serif;
 }
 
 /* Style the table cells */
@@ -190,7 +189,6 @@ img.landingPage {
   text-align: left;
   padding: 8px;
   font-size: 14px;
-  font-family: Arial, sans-serif;
   color: black;
   border-bottom: 1px solid #ccc;
 }
@@ -245,16 +243,16 @@ img.landingPage {
   overflow:hidden;padding:10px 5px;word-break:normal;}
 .tg th{border-color:black;border-style:solid;border-width:1px;font-size:14px;
   font-weight:normal;overflow:hidden;padding:10px 5px;word-break:normal;}
-.tg .tg-lwxg{background-color:#c61313;font-weight:bold;text-align:left;vertical-align:middle}
+.tg .tg-lwxg{background-color:#c61313;font-family: 'Permanent Marker', cursive;font-weight:bold;text-align:left;vertical-align:middle}
 .tg .tg-jevg{background-color:#c099e8;text-align:left;vertical-align:middle}
-.tg .tg-6e0o{background-color:#f56b00;font-weight:bold;text-align:left;vertical-align:middle}
+.tg .tg-6e0o{background-color:#f56b00;font-family: 'Permanent Marker', cursive;font-weight:bold;text-align:left;vertical-align:middle}
 .tg .tg-ft9w{background-color:#9aff99;text-align:left;vertical-align:middle}
-.tg .tg-8267{background-color:#6c38a1;font-weight:bold;text-align:left;vertical-align:middle}
+.tg .tg-8267{background-color:#6c38a1;font-family: 'Permanent Marker', cursive;font-weight:bold;text-align:left;vertical-align:middle}
 .tg .tg-hqmf{background-color:#c099e8;text-align:left;vertical-align:middle}
-.tg .tg-1ofu{background-color:#cbcefb;font-weight:bold;text-align:left;vertical-align:middle}
-.tg .tg-vs8g{background-color:#ffcb2f;font-weight:bold;text-align:left;vertical-align:middle}
-.tg .tg-qvz6{background-color:#009901;font-weight:bold;text-align:left;vertical-align:middle}
-.tg .tg-nz37{background-color:#6665cd;font-weight:bold;text-align:left;vertical-align:middle}
+.tg .tg-1ofu{background-color:#cbcefb;text-align:left;vertical-align:middle}
+.tg .tg-vs8g{background-color:#ffcb2f;font-family: 'Permanent Marker', cursive;font-weight:bold;text-align:left;vertical-align:middle}
+.tg .tg-qvz6{background-color:#009901;font-family: 'Permanent Marker', cursive;font-weight:bold;text-align:left;vertical-align:middle}
+.tg .tg-nz37{background-color:#6665cd;font-family: 'Permanent Marker', cursive;font-weight:bold;text-align:left;vertical-align:middle}
 .tg .tg-smii{background-color:#fddbdb;text-align:left;vertical-align:middle}
 .tg .tg-k12w{background-color:#ffce93;text-align:left;vertical-align:middle}
 .tg .tg-1zu3{background-color:#fffc9e;text-align:left;vertical-align:middle}
